@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const sendMessage = async (message) => {
   try {
-    const response = await axios.post("fastapi-rlx1.onrender.com/chat", {
+    const response = await axios.post("https://fastapi-rlx1.onrender.com/chat", {
       message: message,
     });
     const answer = response.data;

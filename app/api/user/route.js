@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export async function POST(Payload) {
   try {
-    const response = await axios.post('fastapi-rlx1.onrender.com/user', Payload);
+    const response = await axios.post('https://fastapi-rlx1.onrender.com/user', Payload);
 
     if (!response.status === 200) {
       throw new Error('Request failed with status ' + response.status);
