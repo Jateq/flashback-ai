@@ -33,7 +33,7 @@ const AboutSection = () => (
             </div>
 
             <div id="team" className="flex flex-col gap-12 opacity-95">
-  
+
                 <div id="thanks">
                     <h2 className="mb-2 text-xl text-slate-100">Special thanks to</h2>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -53,7 +53,7 @@ const AboutSection = () => (
                             <h3 className="font-medium">Colleagues/Friends</h3>
                             <p className="text-sm italic text-slate-400">For creating best summer</p>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -97,13 +97,29 @@ const AboutSection = () => (
                     </div>
                 </section>
 
-                <section className="flex justify-center gap-8 mt-[50px]">
+                <section className="flex justify-center gap-[55px] mt-[50px]">
+                <p>
+                        <a className="underline-offset-2 opacity-70 hover:underline" href="/terms-of-service">
+                            Terms of Service
+                        </a>
+  
+                    </p>
+
+                    <p>
+                    <a className="underline-offset-2 opacity-70 hover:underline" href="/privacy-policy">
+                            Privacy Policy
+                        </a>
+
+                    </p>
+                    </section>
+
+                <section className="flex justify-center gap-8 ">
                     <p> Brought to you by:{" "}
                         <a className="underline-offset-2 opacity-70 hover:underline" href="https://www.instagram.com/jateq_/">
                             Jateq
                         </a>
                     </p>
-
+               
 
                 </section>
             </div>
