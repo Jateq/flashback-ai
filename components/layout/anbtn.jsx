@@ -11,10 +11,10 @@ const Anbtn = () => {
     <div className="absolute top-[42%] animate-fade-up">
       <Link href="/create/twin/chat">
         <button className="my-5 text-xl relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-stone-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-white group">
-          <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-gradient-to-br from-green-400 to-stone-500 group-hover:h-full"></span>
+          <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-gradient-to-br  from-mypurple to-mylightpurple group-hover:h-full"></span>
           <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
             <svg
-              className="w-5 h-5 text-green-400"
+              className="w-5 h-5 text-mypurple"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

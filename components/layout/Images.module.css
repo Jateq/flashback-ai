@@ -93,6 +93,16 @@
   border-style: solid;
   border-color: rgb(63, 59, 59);
 }
+.myblackfini{
+  width: 98%;
+  height: 86%;
+  border-radius: 50px;
+  object-fit: fill;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(63, 59, 59);
+  z-index: 0;
+}
 
 .parent {
   /* Define the desired height for the parent container */

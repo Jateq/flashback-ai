@@ -101,7 +101,7 @@ const NameForm = ({ onNext }) => {
             </button>
           </form>
         </div>
-      
+
       </div>
     </main>
   );
@@ -241,6 +241,16 @@ const TextInfo = ({ onNext }) => {
   );
 };
 
+const Finish = () => {
+  return(
+  <main className='flex items-center justify-center'>
+      <div className={`flex items-center justify-center bg-cover bg-no-repeat  bg-center fixed top-[13%] ${styles.myblackfini}`} style={{ backgroundImage: 'url(/twin.jpg)' }}>
+      <Anbtn />
+    </div>
+  </main>
+  )
+}
+
 const ProgressBar = ({ steps, currentStep }) => {
   const [progressWidth, setProgressWidth] = useState(0);
 
@@ -278,7 +288,7 @@ const Formulae = () => {
       {step === 1 && <AgeForm onNext={handleNext} />}
       {step === 2 && <DigitAge onNext={handleNext} />}
       {step === 3 && <TextInfo onNext={handleNext} />}
-      {step === 4 && <Anbtn />}
+      {step === 4 && <Finish />}
     </div>
   );
 };
