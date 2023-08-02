@@ -12,7 +12,7 @@ const Cont = () => {
   };
 
   return (
-    <main className="mt-[250px] mb-[70px] flex justify-center items-center gap-[100px]">
+    <main className="mt-[130px] mb-[50px] flex justify-center items-center gap-[100px]">
       <Card
         image={"/one.jpg"}
         title={"Create Twin"}
