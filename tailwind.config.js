@@ -27,6 +27,7 @@ module.exports = {
         bordercolor: 'rgb(63, 59, 59)',
         mypurple: 'rgba(134,57,129,255)',
         mylightpurple: 'rgba(27,6,65,255)',
+        uldanapurple: 'rgba(224, 21, 209, 1)'
       },
       animation: {
         // Fade up and down

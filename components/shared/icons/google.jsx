@@ -1,47 +1,4 @@
 export default function Google({ className }) {
   return (
-    <svg viewBox="0 0 100 100" className={className}>
-      <linearGradient
-        id="b"
-        x1="55.41"
-        x2="12.11"
-        y1="96.87"
-        y2="21.87"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#1e8e3e" />
-        <stop offset="1" stopColor="#34a853" />
-      </linearGradient>
-      <linearGradient
-        id="c"
-        x1="42.7"
-        x2="86"
-        y1="100"
-        y2="25.13"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#fcc934" />
-        <stop offset="1" stopColor="#fbbc04" />
-      </linearGradient>
-      <linearGradient
-        id="a"
-        x1="6.7"
-        x2="93.29"
-        y1="31.25"
-        y2="31.25"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#d93025" />
-        <stop offset="1" stopColor="#ea4335" />
-      </linearGradient>
-      <path fill="url(#a)" d="M93.29 25a50 50 90 0 0-86.6 0l3 54z" />
-      <path fill="url(#b)" d="M28.35 62.5 6.7 25A50 50 90 0 0 50 100l49-50z" />
-      <path fill="url(#c)" d="M71.65 62.5 50 100a50 50 90 0 0 43.29-75H50z" />
-      <path fill="#fff" d="M50 75a25 25 90 1 0 0-50 25 25 90 0 0 0 50z" />
-      <path
-        fill="#1a73e8"
-        d="M50 69.8a19.8 19.8 90 1 0 0-39.6 19.8 19.8 90 0 0 0 39.6z"
-      />{" "}
-    </svg>
-  );
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48"  height="22"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use href="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg>);
 }

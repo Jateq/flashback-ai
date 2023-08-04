@@ -5,33 +5,44 @@ import { useEffect, useState } from 'react';
 import styles from "../layout/Images.module.css";
 import Anbtn from './anbtn';
 
-
 const AgeForm = ({ onNext }) => {
-  const [age, setAge] = useState(5);
+  const [age, setAge] = useState();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (event) => {
     const enteredAge = parseInt(event.target.value, 10); // Parse the entered age as an integer
-    if (enteredAge >= 5 && enteredAge <= 130) {
       setAge(enteredAge);
-    }
+      setErrorMessage(''); // Clear error message
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Submitted age:', age);
-    // Save the age in localStorage
-    localStorage.setItem('age', age);
-    // Reset the form
-    setAge('');
 
-    // Proceed to the next step
-    onNext();
+    if (age >= 5 && age <= 130) {
+      setErrorMessage('')
+      console.log('Submitted age:', age);
+      // Save the age in localStorage
+      localStorage.setItem('age', age);
+      // Reset the form
+      setAge('');
+
+      // Proceed to the next step
+      onNext();
+    } else {
+      setErrorMessage('Please choose an age between 5 and 130.');
+    }
   };
 
   return (
-    <main className='flex items-center justify-center'>
-      <div className={`flex items-center justify-center bg-cover bg-no-repeat  bg-center fixed top-[30%] ${styles.myblacko}`} style={{ backgroundImage: 'url(/twin.jpg)' }}>
-        <div className="absolute  font-display opacity-30 py-5 px-10 rounded-lg animate-slide-down-fade tracking-[-0.02em] drop-shadow-sm " style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+    <main className="flex items-center justify-center">
+      <div
+        className={`flex items-center justify-center bg-cover bg-no-repeat  bg-center fixed top-[30%] ${styles.myblacko}`}
+        style={{ backgroundImage: 'url(/twin.jpg)' }}
+      >
+        <div
+          className="absolute  font-display opacity-30 py-5 px-10 rounded-lg animate-slide-down-fade tracking-[-0.02em] drop-shadow-sm "
+          style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
+        >
           <form className="flex flex-col items-center" onSubmit={handleSubmit}>
             <label htmlFor="age" className="md:text-2xl mb-2 text-white">
               Enter your age:
@@ -41,10 +52,11 @@ const AgeForm = ({ onNext }) => {
               id="age"
               className="w-[230px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-electricblue focus:border-electricblue"
               value={age}
-              onChange={handleChange}
               min="0"
+              onChange={handleChange}
               required
             />
+            <p className="text-white/50">{errorMessage}</p>
             <button
               type="submit"
               className="mt-4 px-4 py-2 text-xl bg-mypurple text-white rounded-lg hover:bg-white hover:text-electricblue duration-300 focus:outline-none focus:bg-bagray"
@@ -57,7 +69,6 @@ const AgeForm = ({ onNext }) => {
     </main>
   );
 };
-
 const NameForm = ({ onNext }) => {
   const [name, setName] = useState('');
 
@@ -100,6 +111,7 @@ const NameForm = ({ onNext }) => {
               Submit
             </button>
           </form>
+         
         </div>
 
       </div>
@@ -156,18 +168,21 @@ const DigitAge = ({ onNext }) => {
   );
 };
 
+
 const TextInfo = ({ onNext }) => {
   const [userInfo, setUserInfo] = useState({
     mainGoal: '',
     hobbies: '',
-    education: ''
+    education: '',
   });
+
+  const [loading, setLoading] = useState(false); // State variable for loading state
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -182,22 +197,48 @@ const TextInfo = ({ onNext }) => {
       creds: localStorage.getItem('creds'),
       age: localStorage.getItem('age'),
       dage: localStorage.getItem('dage'),
-      info: userInfoString
+      info: userInfoString,
     };
     try {
+      setLoading(true); // Start loading state
       const response = await POST(Payload);
-      localStorage.setItem("greet", response);
+      localStorage.setItem('greet', response);
       console.log(response);
       onNext();
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false); // Stop loading state (whether the request succeeds or fails)
     }
   };
 
   return (
-    <main className='flex items-center justify-center'>
-      <div className={`flex items-center justify-center bg-cover bg-no-repeat  bg-center fixed top-[20%] ${styles.myblackf}`} style={{ backgroundImage: 'url(/twin.jpg)' }}>
-        <div className="text-white  pt-[33px] py-[37px] px-[50px] rounded-lg animate-slide-down-fade opacity-0 tracking-[-0.02em] drop-shadow-sm " style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+    <main className="flex items-center justify-center">
+      <div
+        className={`flex items-center justify-center bg-cover bg-no-repeat bg-center fixed top-[20%] ${
+          styles.myblackf
+        }`}
+        style={{ backgroundImage: 'url(/twin.jpg)' }}
+      >
+        <div
+          className={`text-white  pt-[33px] py-[37px] px-[50px] rounded-lg animate-slide-down-fade ${
+            loading ? 'opacity-50' : 'opacity-0'
+          } tracking-[-0.02em] drop-shadow-sm `}
+          style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
+        >
+          {loading ? ( // If loading is true, show the loading spinner
+            <div className="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          ) : (
+            <>
           <div className="flex justify-center items-center mb-5 text-2xl">
             Enter more specific information about you
           </div>
@@ -235,6 +276,8 @@ const TextInfo = ({ onNext }) => {
               Next
             </button>
           </form>
+            </>
+          )}
         </div>
       </div>
     </main>
@@ -244,27 +287,43 @@ const TextInfo = ({ onNext }) => {
 const Finish = () => {
   return(
   <main className='flex items-center justify-center'>
-      <div className={`flex items-center justify-center bg-cover bg-no-repeat  bg-center fixed top-[13%] ${styles.myblackfini}`} style={{ backgroundImage: 'url(/twin.jpg)' }}>
+      <div className={`flex items-center justify-center bg-cover bg-no-repeat  bg-center fixed top-[13%] ${styles.myblackf}`} style={{ backgroundImage: 'url(/twin.jpg)' }}>
       <Anbtn />
     </div>
   </main>
   )
 }
 
+
 const ProgressBar = ({ steps, currentStep }) => {
   const [progressWidth, setProgressWidth] = useState(0);
 
   useEffect(() => {
-    const width = (currentStep / steps) * 100;
-    setProgressWidth(width);
+    if (currentStep === 0) {
+      setProgressWidth(100);
+
+      const timeout = setTimeout(() => {
+        setProgressWidth(1);
+      }, 1300); // Reset to 0 after 1 second
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    } else {
+      const width = (currentStep / steps) * 100;
+      setProgressWidth(width);
+    }
   }, [currentStep, steps]);
 
   return (
     <main className="flex justify-center items-center">
-      <div className="absolute top-[10%] bg-gray-200 w-[90%] h-4 rounded-lg">
+      <div className="absolute top-[10%] bg-gray-200 border-2 border-gray-200  w-[90%] h-[22px] rounded-full">
         <div
-          className="bg-mypurple h-full rounded-lg"
-          style={{ width: `${progressWidth}%`, transition: 'width 0.5s' }}
+          className=" bg-gradient-to-br from-electricblue to-uldanapurple h-full rounded-lg "
+          style={{
+            width: `${progressWidth}%`,
+            transition: 'width 0.5s',
+          }}
         ></div>
       </div>
     </main>
