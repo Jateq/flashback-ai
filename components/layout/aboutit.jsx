@@ -1,7 +1,5 @@
-import React from 'react';
-
 const AboutSection = () => (
-    <div className="relative mx-auto flex w-full max-w-[1300px] flex-col gap-16 overflow-hidden  leading-relaxed text-blue-100 max-md:mt-16 md:p-16">
+    <div className="relative mx-auto flex w-full max-w-[1300px] flex-col gap-16 overflow-hidden  leading-relaxed text-blue-100 mt-16 p-16">
         <section id="" className="flex flex-col gap-12 text-slate-300">
             <div id="about" className="absolute top-0 max-md:-top-16"></div>
             <div>
