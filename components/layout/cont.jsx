@@ -12,7 +12,7 @@ const Cont = () => {
   };
 
   return (
-    <main className="mt-[130px] mb-[50px] flex flex-wrap justify-center items-center gap-[20px] md:gap-[100px]">
+    <main className="mt-[130px] md:p-0 p-[30px] mb-[50px] flex flex-wrap justify-center items-center gap-[20px] md:gap-[100px]">
       <Card
         image={"/one.jpg"}
         title={"Create Twin"}
@@ -24,14 +24,14 @@ const Cont = () => {
       <Card
         image={"/two.jpg"}
         title={"Journal"}
-        desc={"Capture your thoughts, emotions, and memories: embrace consciousness."}
+        desc={"NOT AVAILABLE"}
         isSelected={selectedCard === 1}
         onClick={() => handleCardClick(1)}
       />
       <Card
         image={"/three.jpg"}
         title={"Present"}
-        desc={"Get the daily life energy: love today and seize all tomorrows!  "}
+        desc={"NOT AVAILABLE  "}
         isSelected={selectedCard === 2}
         onClick={() => handleCardClick(2)}
       />

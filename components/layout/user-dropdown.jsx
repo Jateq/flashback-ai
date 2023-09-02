@@ -1,12 +1,11 @@
-"use client";
-
 import { Fragment } from "react";
 import { signOut } from "next-auth/react";
-import { ArrowRightOnRectangleIcon } from '@heroicons/react/20/solid'
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
-import { Menu, Transition } from '@headlessui/react'
+import { Menu, Transition } from "@headlessui/react";
 import { Session } from "next-auth";
-import cx from 'classnames'
+import cx from "classnames";
+import Link from "next/link"; // Import Link from Next.js
 
 export default function UserDropdown({ session }) {
   const { email, image } = session?.user || {};
@@ -41,13 +40,32 @@ export default function UserDropdown({ session }) {
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={cx(active ? 'bg-gray-100' : '', 'relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-sm text-gray-700')}
+                  className={cx(
+                    active ? "bg-gray-100" : "",
+                    "relative flex w-full items-center justify-start space-x-2 rounded-md text-sm text-gray-700"
+                  )}
                   onClick={() => signOut()}
                 >
-                  <ArrowRightOnRectangleIcon className="h-4 w-4" />
-                  <p className="text-sm">Sign out</p>
+                  {/* <ArrowRightOnRectangleIcon className="h-4 w-4" /> */}
+                  <p className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Sign out</p>
                 </button>
               )}
+            </Menu.Item>
+            {/* Add links to Documentation and Examples */}
+            <Menu.Item>
+              <Link href="/documentation">
+                <p className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  Documentation
+                </p>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link href="/jateq">
+                <p className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  Examples
+                </p>
+              </Link>
             </Menu.Item>
           </Menu.Items>
         </Transition>

@@ -59,18 +59,6 @@ export default function NavBar({ session }) {
           </Link>
           <div className="flex font-display">
             <div className="ml-auto flex items-center text-white ">
-              <Link href="/jateq" className=" hover:opacity-60 duration-300 mr-8 ">
-                Documentation
-              </Link>
-              {session ? (
-                <Link href="/chat" className="mr-8  hover:opacity-60 duration-500">
-                  Examples
-                </Link>
-              ) : (
-                <a className="mr-8 hover:opacity-60  duration-300 cursor-pointer" onClick={() => setShowSignInModal(true)}>
-                  Examples
-                </a>
-              )}
               {session ? (
                 <UserDropdown session={session} />
               ) : (

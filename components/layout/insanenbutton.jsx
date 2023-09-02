@@ -16,7 +16,7 @@ const InsaneButton = ( ) => {
     return (
       <>
         {session ? (
-          <div className="absolute top-[52%] animate-fade-up">
+          <div className="flex animate-fade-up">
             <Link href="/create/twin" onClick={handleSignInClick}>
               <button className="my-5 text-xl relative inline-flex items-center 
                 justify-start py-3 pl-4 pr-12 overflow-hidden 
