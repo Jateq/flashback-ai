@@ -5,7 +5,7 @@ import { signOut } from 'next-auth/react';
 const BottomDiv = ({ session }) => {
   const { SignInModal, setShowSignInModal } = useSignInModal();
   return (
-    <div className="flex flex-col gap-2 mt-[20px] ml-[100px] mr-[100px] justify-center items-center max-h-fit font-sans origin-bottom md:flex-row-reverse md:gap-8 md:justify-between">
+    <div className="flex flex-col gap-2 mt-[10px] ml-[100px] mr-[100px] justify-center items-center max-h-fit font-sans origin-bottom md:flex-row-reverse md:gap-8 md:justify-between">
       <div className="flex flex-1 gap-4 justify-end">
         <SignInModal />
         {session ? (

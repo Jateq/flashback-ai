@@ -15,7 +15,7 @@ export default function NavBar({ session }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 850) { // You can adjust this value as needed
+      if (window.scrollY > window.innerHeight-20) { // You can adjust this value as needed
         setScrolled(true);
       } else {
         setScrolled(false);

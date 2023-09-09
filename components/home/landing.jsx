@@ -22,7 +22,7 @@ export default function Landing({ session }) {
       <div className={`flex justify-center items-center ${styles.parent}`}>
         <div className={`mt-[10px] flex justify-center items-center flex-col bg-cover bg-center bg-no-repeat  ${styles.gifer}`} style={{ backgroundImage: 'url(/dune.gif)' }}>
     
-          <h1 className="md:mt-[500px] text-4xl font-bold animate-fade-up text-white text-center font-display tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem]" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
+          <h1 className="md:mt-[380px] text-4xl font-bold animate-fade-up text-white text-center font-display tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem]" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
             Unveil your timeless journey
           </h1> 
           <p className="mt-6 animate-fade-up text-center text-white opacity-0 md:text-2xl" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
